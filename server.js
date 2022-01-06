@@ -1,19 +1,17 @@
 //DEPENDENCIES
 const express = require("express");
 const app = express()
-
 const morgan = require("morgan")
-
 const methodOverride = require("method-override")
-
 const mongoose = require('mongoose')
 require('dotenv').config()
-
 app.set('view engine', 'ejs')
 
 //DATABASE CONNECTION
-const { PORT = 3000, DATABASE_URL} = process.env;
-mongoose.connect(DATABASE_URL);
+mongoose.connect(process.env.DATABASE_URL, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
 // Database Connection Error/Success
 // Define callback functions for various events
@@ -24,15 +22,18 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 // Middleware
 app.use(express.static("public"));
-app.use(morgan("dev"));
 app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
 //ROUTES and CONTROLLERS
-const usersController = require("./controllers/books");
-app.use("/", usersController)
+const booksController = require("./controllers/books");
+app.use("/", booksController)
+
+
 
 //LISTENER
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log("I'm listening")
 })

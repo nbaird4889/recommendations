@@ -4,6 +4,8 @@
     --teal: #025F82;
     --light-blue: #4FD4E5;
     --pink: #E12E99;
+    --yellow: #F8B348;
+    --blue: #02439B;
   }
 
 * {
@@ -24,6 +26,15 @@ body {
     align-items: center;
     align-content: center;
     padding: 40px; 
+
+}
+
+.home-headline {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 44px;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 .header-headline {
@@ -32,6 +43,15 @@ body {
     font-size: 44px;
     letter-spacing: 1px;
     text-align: center;
+    transition: all .2s ease-in-out; 
+}
+
+.header-headline:hover {
+    transform: scale(1.05);
+}
+
+.header-link {
+    text-decoration: none;
 }
 
 header {
@@ -58,7 +78,7 @@ header {
 }
 
 .nav-link:hover {
-    color: var(--light-blue);
+    color: var(--pink);
     transform: scale(1.2);
 }
 
@@ -126,7 +146,7 @@ footer p {
 .home-block {
     border: 2px solid var(--dark-grey);
     background-color: var(--dark-grey);
-    padding: 40px 10px; 
+    padding: 50px 10px; 
     width: 300px; 
     margin-bottom: 90px;
     transition: all .2s ease-in-out; 
@@ -157,10 +177,33 @@ footer p {
 .index-headline {
     color: white;
     font-family: 'Staatliches', cursive;
-    font-size: 40px;
+    font-size: 44px;
     text-align: center;
-    padding: 50px 0px; 
+    padding-top: 60px;
+    padding-bottom: 30px;
+    text-shadow: 2px 2px black;
 }
+
+.new-button {
+    border: none;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    background-color: var(--pink);
+    padding: 15px; 
+    margin-bottom: 60px;
+    transition: all .2s ease-in-out; 
+}
+
+.new-button:hover{
+    transform: scale(1.1);
+    background-color: gray;
+}
+
+.new-button-div {
+    text-align: center;
+}
+
 .index-main {
     background-color: var(--teal);
 }
@@ -178,9 +221,10 @@ footer p {
 .index-items {
     border: 2px solid var(--light-blue);
     background-color: var(--light-blue);
-    padding: 40px 10px; 
+    padding: 70px 10px; 
     width: 300px; 
-    margin-bottom: 90px;
+    margin-bottom: 80px;
+    box-shadow: 10px 10px 12px 1px var(--dark-grey);
     transition: all .2s ease-in-out; 
 }
 
@@ -193,18 +237,144 @@ footer p {
     color: white;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
 }
 
 .index-title {
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .index-author {
     font-style: italic;
+    font-size: 20px;
+    font-weight: 300;
 }
 
+/* SHOW PAGE */
+.container {
+    width: 55vw;
+    height: auto;
+    display: flex;
+    margin: auto; 
+    box-shadow: 5px 5px 15px 2px var(--dark-grey);
+    margin-top: 15px; 
+}
 
+.img-container {
+    width: 50%;
+  background: var(--light-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.show-img {
+    width: 75%;
+    max-width: 300px;
+    height: auto;
+}
+
+.description-container {
+    width: 50%;
+  background: var(--light-blue);
+  padding: 50px 20px;
+  overflow: scroll;
+  overflow-y: auto;
+}
+
+.show-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px; 
+    font-weight: 500;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.show-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 24px; 
+    color: white;
+    margin-bottom: 20px;
+}
+
+.show-foot {
+    padding: 50px; 
+}
+
+.show-buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.show-btn {
+    padding: 10px 30px; 
+    margin: 20px 30px;
+    border: none;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    background-color: var(--pink);
+    transition: all .2s ease-in-out; 
+}
+
+.show-btn:hover {
+    background-color: gray;
+    transform: scale(1.2);
+}
+
+/* NEW PAGE  */
+.form-main {
+    background-color: var(--yellow);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    background-color: var(--blue);
+    padding: 50px 80px;
+    margin: 50px 150px;
+}
+  
+label {
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    color: white;
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+}
+  
+input {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid var(--light-green);
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: 0;
+    border: 5px solid var(--yellow);
+}
+
+.new-btn {
+    text-align: center;
+}
+
+.new-btn-2 {
+    border: none;
+    background-color: var(--yellow);
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    width: 30%;
+    color: white;
+    transition: all .2s ease-in-out; 
+}
+
+.new-btn-2:hover {
+    background-color: gray;
+    transform: scale(1.2);
+}
+
+  

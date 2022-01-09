@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Staatliches&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Staatliches&display=swap');
     </style>
     <title>Recommendations</title>
 </head>
 
 <body>
     <header>
-        <h1 class="header-headline">The Recommendation Application</h1>
+        <a class="header-link" href="/"><h1 class="header-headline">The Recommendation Application</h1></a>
         <nav>
             <ul class="nav-links">
                 <a class="nav-link" href="/books">
@@ -37,16 +37,18 @@
     </header>
     <main class="index-main">
         <h2 class="index-headline">BOOK RECOMMENDATIONS</h2>
+        <div class="new-button-div"><a href="/books/new"><button class="new-button">NEW BOOK RECOMMENDATION</button></a>
+        </div>
         <ul class="index-list">
             <% books.forEach(book => { %>
-            <div class="index-items">
-                <a class="index-link" href="/books/<%=book._id%>">
+            <a class="index-link" href="/books/<%=book._id%>">
+                <div class="index-items">
                     <li>
                         <h2 class="index-title"><%=book.title%></h2>
                         <p class="index-author"><%=book.author%></p>
                     </li>
-                </a>
-            </div>
+                </div>
+            </a>
             <% }) %>
         </ul>
     </main>

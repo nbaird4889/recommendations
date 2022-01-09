@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+</head>
+<body>
+    <h2>Edit a Book Recommendation</h2>
+        <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+            <fieldset>
+                <label for="Title">Title</label>
+                <input type="text" name="title" value="<%=book.title%>"/><br />
+                <label for="author">Author</label>
+                <input type="text" name="author" value="<%=book.author%>"/><br />
+                <label for="description">Description</label>
+                <input type="text" name="description" value="<%=book.description%>"/><br />
+                <label for="img">Image Link (URL)</label>
+                <input type="text" name="img" value="<%=book.img%>"/><br />
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" value="<%=book.rating%>"/><br />
+                <label for="recommended">Recommended By</label>
+                <input type="text" name="recommended" value="<%=book.recommended%>"/><br />
+                <div>
+                    <input type="submit" name="" value="Add Book" />
+                </div>
+            </fieldset>
+        </form>
+</body>
+</html>

@@ -7,13 +7,11 @@
     <title>Recommendations</title>
 </head>
 <body>
-    <h2>BOOK RECOMMENDATIONS</h2>
-    <ul>
-        <% books.forEach(book => { %>
-            <li>
-                <a href="/books/<%=book._id%>"><h2><%=book.title%></h2></a>
-            </li>
-        <% }) %>
-    </ul>
+    <h2>SHOW RECOMMENDATIONS</h2>
+    <h2><%=show.title%></h2>
+    <h2><%=show.description%></h2>
+    <h2><%=show.img%></h2>
+    <h2><%=show.rating%></h2>
+    <h2><%=show.recommended%></h2>
 </body>
 </html>

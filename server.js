@@ -27,8 +27,20 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
 //ROUTES and CONTROLLERS
+app.get("/", (req, res) => {
+    res.render("home")
+})
+
 const booksController = require("./controllers/books");
-app.use("/", booksController)
+app.use("/books", booksController)
+
+const showsController = require("./controllers/shows");
+app.use("/shows", showsController)
+
+const restaurantsController = require("./controllers/restaurants");
+app.use("/restaurants", restaurantsController)
+
+
 
 
 

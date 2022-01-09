@@ -3,30 +3,55 @@ const booksRouter = express.Router()
 const Book = require("../models/book")
 
 //ROUTES
-booksRouter.get("/", (req, res) => {
-    res.render("home")
-})
-
 //INDEX
-booksRouter.get('/books', (req, res) => {
+booksRouter.get('/', (req, res) => {
 	Book.find({}, (error, allBooks) => {
-		res.render('book_index', {
+		res.render('books/index', {
 			books: allBooks,  
 		});
 	});
 });
 
 //NEW
-booksRouter.get("/books/new", (req, res) => {
-    res.render("book_new")
+booksRouter.get("/new", (req, res) => {
+    res.render("books/new")
+})
+
+//UPDATE
+booksRouter.put("/:id", (req, res) => {
+    Book.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {new: true},
+      (error, updatedBook) => {
+        res.redirect(`/books/${req.params.id}`)
+      }
+    )
 })
 
 //CREATE
-booksRouter.post("/books", (req, res) => {
+booksRouter.post("/", (req, res) => {
     Book.create(req.body, (error, createdBook) => {
         res.redirect("/books")
     })
 })
 
+//EDIT
+booksRouter.get("/:id/edit", (req, res) => {
+    Book.findById(req.params.id, (error, foundBook) => {
+        res.render("books/edit.ejs", {
+            book: foundBook,
+        })
+    })
+})
+
+//SHOW
+booksRouter.get("/:id", (req, res) => {
+    Book.findById(req.params.id, (err, foundBook) => {
+        res.render("books/show.ejs", {
+            book: foundBook,
+        })
+    })
+})
 
 module.exports = booksRouter

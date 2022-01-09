@@ -1,0 +1,210 @@
+/* GLOBAL STYLES */
+:root {
+    --dark-grey: #291C1C;
+    --teal: #025F82;
+    --light-blue: #4FD4E5;
+    --pink: #E12E99;
+  }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.home-header {
+    background-color: var(--dark-grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 40px; 
+}
+
+.header-headline {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 44px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+header {
+    background-color: var(--dark-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 40px; 
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-link {
+    display: inline-block;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 28px;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: all .2s ease-in-out; 
+}
+
+.nav-link:hover {
+    color: var(--light-blue);
+    transform: scale(1.2);
+}
+
+footer {
+    display: flex; 
+    background-color: var(--dark-grey);
+    justify-content: center;
+    padding: 30px; 
+}
+
+footer p {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+/* HOMEPAGE */
+
+.main-head {
+    padding: 40px; 
+}
+
+.home-main {
+    background-image: url("https://i.imgur.com/u1wfjFK.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.intro {
+    border: 2px solid var(--dark-grey);
+    background-color: var(--dark-grey);
+    margin: 0 auto;
+    padding: 30px 10px; 
+    max-width: 900px; 
+    margin-bottom: 100px;
+}
+
+.intro-headline {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.intro-text {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.home-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+    column-gap: 200px; 
+    row-gap: 40px;
+}
+
+.home-block {
+    border: 2px solid var(--dark-grey);
+    background-color: var(--dark-grey);
+    padding: 40px 10px; 
+    width: 300px; 
+    margin-bottom: 90px;
+    transition: all .2s ease-in-out; 
+}
+
+.home-block:hover {
+    transform: scale(1.2);
+}
+
+.home-items {
+    text-decoration: none;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 32px;
+    text-align: center;
+}
+
+.home-items:hover {
+    color: var(--light-blue);
+    cursor: pointer;
+}
+
+.home-link {
+    text-decoration: none;
+}
+
+/* INDEX PAGE */
+.index-headline {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 40px;
+    text-align: center;
+    padding: 50px 0px; 
+}
+.index-main {
+    background-color: var(--teal);
+}
+
+.index-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+    column-gap: 200px; 
+    row-gap: 40px;
+}
+
+.index-items {
+    border: 2px solid var(--light-blue);
+    background-color: var(--light-blue);
+    padding: 40px 10px; 
+    width: 300px; 
+    margin-bottom: 90px;
+    transition: all .2s ease-in-out; 
+}
+
+.index-items:hover {
+    transform: scale(1.2);
+}
+
+.index-link {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.index-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.index-author {
+    font-style: italic;
+}
+
+
+

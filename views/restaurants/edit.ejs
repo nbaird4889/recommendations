@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+</head>
+<body>
+    <h2>Edit a Restaurant Recommendation</h2>
+        <form action="/restaurants/<%=restaurant._id%>?_method=PUT" method="POST">
+            <fieldset>
+                <label for="Name">Name</label>
+                <input type="text" name="name" value="<%=restaurant.name%>"/><br />
+                <label for="neighborhood">Neighborhood</label>
+                <input type="text" name="neighborhood" value="<%=restaurant.neighborhood%>"/><br />
+                <label for="best_dishes">Best Dishes</label>
+                <input type="text" name="best_dishes" value="<%=restaurant.best_dishes%>"/><br />
+                <label for="img">Image Link (URL)</label>
+                <input type="text" name="img" value="<%=restaurant.img%>"/><br />
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" value="<%=restaurant.rating%>"/><br />
+                <label for="recommended">Recommended By</label>
+                <input type="text" name="recommended" value="<%=restaurant.recommended%>"/><br />
+                <div>
+                    <input type="submit" name="" value="Edit Restaurant" />
+                </div>
+            </fieldset>
+        </form>
+</body>
+</html>

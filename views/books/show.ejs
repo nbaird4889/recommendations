@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Staatliches&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Staatliches&display=swap');
     </style>
     <title>Recommendations</title>
 </head>
 
 <body>
     <header>
-        <a class="header-link" href="/"><h1 class="header-headline">The Recommendation Application</h1></a>
+        <a class="header-link" href="/">
+            <h1 class="header-headline">The Recommendation Application</h1>
+        </a>
         <nav>
             <ul class="nav-links">
                 <a class="nav-link" href="/books">
@@ -53,7 +55,7 @@
                 <h2 class="show-headline">Recommended by:</h2>
                 <p class="show-text"><%=book.recommended%></p>
                 <div class="show-buttons">
-                   <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a> 
+                    <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a>
                     <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
                         <input class="show-btn" type="submit" value="DELETE" />
                     </form>

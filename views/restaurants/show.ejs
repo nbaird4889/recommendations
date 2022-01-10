@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Staatliches&display=swap');
+    </style>
     <title>Recommendations</title>
 </head>
+
 <body>
-    <h2>RESTAURANT RECOMMENDATIONS</h2>
-    <h2><%=restaurant.name%></h2>
-    <h2><%=restaurant.neighborhood%></h2>
-    <h2><%=restaurant.best_dishes%></h2>
-    <h2><%=restaurant.img%></h2>
-    <h2><%=restaurant.rating%></h2>
-    <h2><%=restaurant.recommended%></h2>
+    <header>
+        <a class="header-link" href="/">
+            <h1 class="header-headline">The Recommendation Application</h1>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <a class="nav-link" href="/books">
+                    <li>BOOKS</li>
+                </a>
+                <a class="nav-link" href="/shows">
+                    <li>TV SHOWS</li>
+                </a>
+                <a class="nav-link" href="/restaurants">
+                    <li>RESTAURANTS</li>
+                </a>
+                <a class="nav-link" href="/recipes">
+                    <li>RECIPES</li>
+                </a>
+                <a class="nav-link" href="/dawgs">
+                    <li>DAWGS</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main class="restaurant-main">
+        <h2 class="index-headline">RESTAURANT DETAILS</h2>
+        <div class="container" id="rest-container">
+            <div class="img-container">
+                <img class="show-img" id="rest-img" src="<%=restaurant.img%>">
+            </div>
+            <div class="description-container">
+                <h2 class="show-headline">Name:</h2>
+                <p class="show-text"><%=restaurant.name%></p>
+                <h2 class="show-headline">Author:</h2>
+                <p class="show-text"><%=restaurant.neighborhood%></p>
+                <h2 class="show-headline">Notes:</h2>
+                <p class="show-text"><%=restaurant.best_dishes%></p>
+                <h2 class="show-headline">Rating:</h2>
+                <p class="show-text"><%=restaurant.rating%></p>
+                <h2 class="show-headline">Recommended by:</h2>
+                <p class="show-text"><%=restaurant.recommended%></p>
+                <div class="show-buttons">
+                    <a href="/restaurants/<%=restaurant._id%>/edit"> <button class="show-btn">EDIT</button></a>
+                    <form action="/books/<%=restaurant._id%>?_method=DELETE" method="POST">
+                        <input class="show-btn" type="submit" value="DELETE" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="show-foot"></div>
+    </main>
+    <footer>
+        <p>© Nicole Baird | 2022</p>
+    </footer>
 </body>
+
 </html>

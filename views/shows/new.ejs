@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Staatliches&display=swap');
+    </style>
     <title>Recommendations</title>
 </head>
+
 <body>
-    <h2>Create a New TV Show Recommendation</h2>
+    <header>
+        <a class="header-link" href="/">
+            <h1 class="header-headline">The Recommendation Application</h1>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <a class="nav-link" href="/books">
+                    <li>BOOKS</li>
+                </a>
+                <a class="nav-link" href="/shows">
+                    <li>TV SHOWS</li>
+                </a>
+                <a class="nav-link" href="/restaurants">
+                    <li>RESTAURANTS</li>
+                </a>
+                <a class="nav-link" href="/recipes">
+                    <li>RECIPES</li>
+                </a>
+                <a class="nav-link" href="/dawgs">
+                    <li>DAWGS</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main class="form-main">
+        <h2 class=index-headline>Create a New TV Show Recommendation</h2>
         <form action="/shows" method="POST">
             <fieldset>
                 <label for="Name">Name</label>
@@ -20,10 +51,16 @@
                 <input type="number" name="rating" /><br />
                 <label for="recommended">Recommended By</label>
                 <input type="text" name="recommended" /><br />
-                <div>
-                    <input type="submit" name="" value="Add Book" />
+                <div class="new-btn">
+                    <input class="new-btn-2" type="submit" name="" value="ADD SHOW" />
                 </div>
             </fieldset>
         </form>
+        <div class="show-foot"></div>
+    </main>
+    <footer>
+        <p>© Nicole Baird | 2022</p>
+    </footer>
 </body>
+
 </html>

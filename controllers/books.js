@@ -17,6 +17,13 @@ booksRouter.get("/new", (req, res) => {
     res.render("books/new")
 })
 
+//DELETE
+booksRouter.delete("/:id", (req, res) => {
+    Book.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect("/books")
+    })
+})
+
 //UPDATE
 booksRouter.put("/:id", (req, res) => {
     Book.findByIdAndUpdate(

@@ -37,36 +37,34 @@
             </ul>
         </nav>
     </header>
-    <main class="index-main">
-        <h2 class="index-headline">BOOK DETAILS</h2>
+    <main class="recipe-main">
+        <h2 class="index-headline">RECIPE DETAILS</h2>
         <div class="container">
-            <div class="img-container">
-                <% if (book.img === '') { %>
-                    <img class="show-img" src="https://i.imgur.com/3iso1dM.png">
+            <div class="img-container" id="recipe-image-container">
+                <% if (recipe.img === '') { %>
+                    <img class="show-img" src="https://i.imgur.com/iiY1YhT.png">
                 <% } else { %>
-                    <img class="show-img" src="<%=book.img%>"> 
+                    <img class="show-img" src="<%=recipe.img%>"> 
                <% } %>
             </div>
-            <div class="description-container">
-                <h2 class="show-headline">Title:</h2>
-                <p class="show-text"><%=book.title%></p>
-                <h2 class="show-headline">Author:</h2>
-                <p class="show-text"><%=book.author%></p>
-                <h2 class="show-headline">Notes:</h2>
-                <p class="show-text"><%=book.description%></p>
+            <div class="description-container" id="recipe-description-container">
+                <h2 class="show-headline">Name:</h2>
+                <p class="show-text"><%=recipe.name%></p>
+                <h2 class="show-headline">Link to Recipe:</h2>
+                <a class="recipe-link" href="<%=recipe.link%>"><p id="rec-link-text" class="show-text">Click here for full recipe</p></a>
                 <h2 class="show-headline">Rating:</h2>
-                <p class="show-text"><%=book.rating%></p>
+                <p class="show-text"><%=recipe.rating%></p>
                 <h2 class="show-headline">Recommended by:</h2>
-                <p class="show-text"><%=book.recommended%></p>
+                <p class="show-text"><%=recipe.recommended%></p>
                 <div class="show-buttons">
-                    <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a>
-                    <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+                    <a href="/recipes/<%=recipe._id%>/edit"> <button class="show-btn">EDIT</button></a>
+                    <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
                         <input class="show-btn" type="submit" value="DELETE" />
                     </form>
                 </div>
             </div>
         </div>
-        <div class="show-foot" id="book-foot"></div>
+        <div class="show-foot" id="recipe-footer"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

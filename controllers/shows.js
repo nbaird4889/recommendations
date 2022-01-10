@@ -18,6 +18,13 @@ showRouter.get("/new", (req, res) => {
     res.render("shows/new")
 })
 
+//DELETE
+showRouter.delete("/:id", (req, res) => {
+    Show.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect("/shows")
+    })
+})
+
 //UPDATE
 showRouter.put("/:id", (req, res) => {
     Show.findByIdAndUpdate(

@@ -37,22 +37,22 @@
             </ul>
         </nav>
     </header>
-    <main class="show-main">
-        <h2 class="index-headline">TV RECOMMENDATIONS</h2>
-        <div class="new-button-div"><a href="/shows/new"><button class="new-button">NEW SHOW RECOMMENDATION</button></a>
+    <main class="dawg-main">
+        <h2 class="index-headline">DAWG RECOMMENDATIONS</h2>
+        <div class="new-button-div"><a href="/dawgs/new"><button class="new-button">NEW DAWG RECOMMENDATION</button></a>
         </div>
         <ul class="index-list">
-            <% shows.forEach(show => { %>
-            <a class="index-link" href="/shows/<%=show._id%>">
-                <div class="index-items" id="show-items">
+            <% dawgs.forEach(dawg => { %>
+            <a class="index-link" href="/dawgs/<%=dawg._id%>">
+                <div class="index-items" id="dawg-list">
                     <li>
-                        <h2 class="index-title"><%=show.name%></h2>
+                        <h2 class="index-title"><%=dawg.item%></h2>
                     </li>
                 </div>
             </a>
             <% }) %>
         </ul>
-        <div class="show-footer"></div>
+    <div class="dawg-footer"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

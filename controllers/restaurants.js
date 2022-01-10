@@ -17,6 +17,13 @@ restaurantRouter.get("/new", (req, res) => {
     res.render("restaurants/new")
 })
 
+//DELETE
+restaurantRouter.delete("/:id", (req, res) => {
+    Restaurant.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect("/restaurants")
+    })
+})
+
 //UPDATE
 restaurantRouter.put("/:id", (req, res) => {
     Restaurant.findByIdAndUpdate(

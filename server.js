@@ -40,7 +40,11 @@ app.use("/shows", showsController)
 const restaurantsController = require("./controllers/restaurants");
 app.use("/restaurants", restaurantsController)
 
+const recipesController = require("./controllers/recipes");
+app.use("/recipes", recipesController)
 
+const dawgsController = require("./controllers/dawgs");
+app.use("/dawgs", dawgsController)
 
 
 

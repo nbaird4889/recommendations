@@ -39,7 +39,11 @@
         <h2 class="index-headline">SHOW DETAILS</h2>
         <div class="container">
             <div class="img-container" id="show-img-container">
-                <img class="show-img" src="<%=show.img%>">
+                <% if (show.img === '') { %>
+                    <img class="show-img" src="https://i.imgur.com/Ja3tWvV.png">
+                <% } else { %>
+                    <img class="show-img" src="<%=show.img%>"> 
+               <% } %>
             </div>
             <div class="description-container" id="show-desc-container">
                 <h2 class="show-headline">Name:</h2>
@@ -58,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="show-foot"></div>
+        <div class="show-foot" id="show-footer"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

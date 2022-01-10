@@ -37,22 +37,30 @@
             </ul>
         </nav>
     </header>
-    <main class="show-main">
-        <h2 class="index-headline">TV RECOMMENDATIONS</h2>
-        <div class="new-button-div"><a href="/shows/new"><button class="new-button">NEW SHOW RECOMMENDATION</button></a>
-        </div>
-        <ul class="index-list">
-            <% shows.forEach(show => { %>
-            <a class="index-link" href="/shows/<%=show._id%>">
-                <div class="index-items" id="show-items">
-                    <li>
-                        <h2 class="index-title"><%=show.name%></h2>
-                    </li>
-                </div>
-            </a>
-            <% }) %>
-        </ul>
-        <div class="show-footer"></div>
+    <main class="form-main">
+        <h2 class="index-headline">Create a New Dawg Recommendation</h2>
+        <form action="/dawgs" method="POST">
+            <div class="form-center">
+                <fieldset>
+                    <label for="item">Item</label>
+                    <input type="text" name="item" /><br />
+                    <label for="link">Link</label>
+                    <input type="text" name="link" /><br />
+                    <label for="description">Description</label>
+                    <input type="text" name="description" /><br />
+                    <label for="img">Image Link (URL)</label>
+                    <input type="text" name="img" /><br />
+                    <label for="rating">Rating</label>
+                    <input type="number" name="rating" /><br />
+                    <label for="recommended">Recommended By</label>
+                    <input type="text" name="recommended" /><br />
+                    <div class="new-btn">
+                        <input class="new-btn-2" type="submit" name="" value="Add Item" />
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+        <div class="show-foot"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

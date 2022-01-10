@@ -41,7 +41,11 @@
         <h2 class="index-headline">RESTAURANT DETAILS</h2>
         <div class="container" id="rest-container">
             <div class="img-container">
-                <img class="show-img" id="rest-img" src="<%=restaurant.img%>">
+                <% if (restaurant.img === '') { %>
+                    <img class="show-img" id="rest-img" src="https://i.imgur.com/OEifJfo.png">
+                <% } else { %>
+                    <img class="show-img" id="rest-img" src="<%=restaurant.img%>"> 
+               <% } %>
             </div>
             <div class="description-container">
                 <h2 class="show-headline">Name:</h2>
@@ -56,13 +60,13 @@
                 <p class="show-text"><%=restaurant.recommended%></p>
                 <div class="show-buttons">
                     <a href="/restaurants/<%=restaurant._id%>/edit"> <button class="show-btn">EDIT</button></a>
-                    <form action="/books/<%=restaurant._id%>?_method=DELETE" method="POST">
+                    <form action="/restaurants/<%=restaurant._id%>?_method=DELETE" method="POST">
                         <input class="show-btn" type="submit" value="DELETE" />
                     </form>
                 </div>
             </div>
         </div>
-        <div class="show-foot"></div>
+        <div class="show-foot" id="restaurant-footer"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

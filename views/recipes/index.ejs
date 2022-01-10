@@ -37,22 +37,22 @@
             </ul>
         </nav>
     </header>
-    <main class="show-main">
-        <h2 class="index-headline">TV RECOMMENDATIONS</h2>
-        <div class="new-button-div"><a href="/shows/new"><button class="new-button">NEW SHOW RECOMMENDATION</button></a>
+    <main class="recipe-main">
+        <h2 class="index-headline">BOOK RECOMMENDATIONS</h2>
+        <div class="new-button-div"><a href="/recipes/new"><button class="new-button">NEW RECIPE RECOMMENDATION</button></a>
         </div>
         <ul class="index-list">
-            <% shows.forEach(show => { %>
-            <a class="index-link" href="/shows/<%=show._id%>">
-                <div class="index-items" id="show-items">
+            <% recipes.forEach(recipe => { %>
+            <a class="index-link" href="/recipes/<%=recipe._id%>">
+                <div class="index-items" id="recipe-items">
                     <li>
-                        <h2 class="index-title"><%=show.name%></h2>
+                        <h2 class="index-title"><%=recipe.name%></h2>
                     </li>
                 </div>
             </a>
             <% }) %>
         </ul>
-        <div class="show-footer"></div>
+    <div class="recipe-footer"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

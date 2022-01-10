@@ -37,36 +37,36 @@
             </ul>
         </nav>
     </header>
-    <main class="index-main">
+    <main class="dawg-main">
         <h2 class="index-headline">BOOK DETAILS</h2>
         <div class="container">
-            <div class="img-container">
-                <% if (book.img === '') { %>
-                    <img class="show-img" src="https://i.imgur.com/3iso1dM.png">
+            <div class="img-container" id="dawg-img-container">
+                <% if (dawg.img === '') { %>
+                    <img class="show-img" src="https://i.imgur.com/QHQCGgj.jpg">
                 <% } else { %>
-                    <img class="show-img" src="<%=book.img%>"> 
+                    <img class="show-img" src="<%=dawg.img%>"> 
                <% } %>
             </div>
-            <div class="description-container">
-                <h2 class="show-headline">Title:</h2>
-                <p class="show-text"><%=book.title%></p>
-                <h2 class="show-headline">Author:</h2>
-                <p class="show-text"><%=book.author%></p>
+            <div class="description-container" id="dawg-desc-container">
+                <h2 class="show-headline">Item:</h2>
+                <p class="show-text"><%=dawg.item%></p>
+                <h2 class="show-headline">Link:</h2>
+                <a class="recipe-link" href="<%=dawg.link%>"><p id="rec-link-text" class="show-text">Click here for full item</p></a>
                 <h2 class="show-headline">Notes:</h2>
-                <p class="show-text"><%=book.description%></p>
+                <p class="show-text"><%=dawg.description%></p>
                 <h2 class="show-headline">Rating:</h2>
-                <p class="show-text"><%=book.rating%></p>
+                <p class="show-text"><%=dawg.rating%></p>
                 <h2 class="show-headline">Recommended by:</h2>
-                <p class="show-text"><%=book.recommended%></p>
+                <p class="show-text"><%=dawg.recommended%></p>
                 <div class="show-buttons">
-                    <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a>
-                    <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+                    <a href="/dawgs/<%=dawg._id%>/edit"> <button class="show-btn">EDIT</button></a>
+                    <form action="/dawgs/<%=dawg._id%>?_method=DELETE" method="POST">
                         <input class="show-btn" type="submit" value="DELETE" />
                     </form>
                 </div>
             </div>
         </div>
-        <div class="show-foot" id="book-foot"></div>
+        <div class="show-foot" id="dawg-foot"></div>
     </main>
     <footer>
         <p>© Nicole Baird | 2022</p>

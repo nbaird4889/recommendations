@@ -57,6 +57,10 @@ body {
     transform: scale(1.05);
 }
 
+.header-headline:focus {
+    transform: scale(1.05);
+}
+
 .header-link {
     text-decoration: none;
 }
@@ -110,8 +114,9 @@ footer p {
 }
 
 .home-main {
-    background-image: url("https://i.imgur.com/u1wfjFK.jpg");
-    background-position: center;
+    background-image: url("https://i.imgur.com/tXg44Q9.png");
+    background-attachment: fixed;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -187,8 +192,7 @@ footer p {
     font-size: 44px;
     letter-spacing: 2px;
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 30px;
+    padding: 60px 10px 30px 10px;
     text-shadow: 2px 2px black;
 }
 
@@ -532,3 +536,31 @@ input:focus {
     margin-top: 80px;
     padding: 140px;
 }
+
+@media only screen and (max-width: 430px) {
+    /* HOMEPAGE */
+    .home-main {
+        background-image: url("https://i.imgur.com/ik5d76k.png");
+    }
+
+    .home-list {
+        row-gap: 0px;
+    }
+
+    /* EDIT AND NEW PAGE */
+    fieldset {
+        padding: 15px 15px;
+        margin: 30px 20px;
+    }
+
+    .new-btn-2 {
+        width: 50%;
+    }
+
+    .show-foot {
+        padding: 10px; 
+    }
+
+    /* INDEX PAGE */
+}
+

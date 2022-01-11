@@ -29,11 +29,27 @@ body {
 .home-header {
     background-color: var(--dark-grey);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     padding: 40px; 
 
+}
+
+.home-login {
+    padding: 10px 40px; 
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: var(--pink);
+    transition: all .2s ease-in-out; 
+}
+
+.home-login:hover {
+    transform: scale(1.1);
+    background-color: var(--dark-pink);
 }
 
 .home-headline {
@@ -73,6 +89,32 @@ header {
     align-content: center;
     padding: 40px; 
 }
+
+#login-button {
+    padding: 10px 40px; 
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: var(--pink);
+}
+
+.button-link {
+    display: inline-block;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 28px;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: all .2s ease-in-out; 
+}
+
+.button-link:hover {
+    color: var(--dark-pink);
+    transform: scale(1.1);
+}
+
 
 .nav-links {
     list-style-type: none;

@@ -42,9 +42,9 @@
         <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
             <fieldset>
                 <label for="Name">Name</label>
-                <input type="text" name="name" value="<%=recipe.name%>" /><br />
+                <input type="text" name="name" value="<%=recipe.name%>" required/><br />
                 <label for="link">Link to Recipe</label>
-                <input type="text" name="recipe" value="<%=recipe.link%>" /><br />
+                <input type="text" name="recipe" value="<%=recipe.link%>" required/><br />
                 <label for="img">Image Link (URL)</label>
                 <input type="text" name="img" value="<%=recipe.img%>" /><br />
                 <label for="rating">Rating</label>
@@ -56,7 +56,7 @@
                     <option value="5">5</option>
                 </select><br />
                 <label for="recommended">Recommended By</label>
-                <input type="text" name="recommended" value="<%=recipe.recommended%>" /><br />
+                <input type="text" name="recommended" value="<%=recipe.recommended%>" required/><br />
                 <div class="new-btn">
                     <input class="new-btn-2" type="submit" name="" value="Edit Book" />
                 </div>

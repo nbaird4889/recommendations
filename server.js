@@ -25,6 +25,10 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+app.use(function(req, res, next) {
+    res.locals.error = '';
+    next();
+  });
 
 //ROUTES and CONTROLLERS
 app.get("/", (req, res) => {

@@ -356,6 +356,11 @@ footer p {
     background-color: var(--yellow);
 }
 
+.error-message {
+    text-align: center;
+    
+}
+
 fieldset {
     border: 1px solid #ccc;
     background-color: var(--blue);
@@ -616,6 +621,7 @@ input:focus {
 }
 
 @media only screen and (max-width: 768px) {
+    /* NAVIGATION */
     .header-headline {
         font-size: 24px;
         margin-right: 80px;
@@ -629,6 +635,7 @@ input:focus {
         display: block
     }
 
+    /* SHOW PAGE */
     .container {
         width: 80vw;
         display: flex;
@@ -661,17 +668,6 @@ input:focus {
     .show-btn {
         margin: 10px 20px;
     }
-}   
-
-@media only screen and (max-width: 430px) {
-    /* HOMEPAGE */
-    .home-main {
-        background-image: url("https://i.imgur.com/ik5d76k.png");
-    }
-
-    .home-list {
-        row-gap: 0px;
-    }
 
     /* EDIT AND NEW PAGE */
     fieldset {
@@ -682,9 +678,16 @@ input:focus {
     .new-btn-2 {
         width: 50%;
     }
+}   
 
-    .show-foot {
-        padding: 10px; 
+@media only screen and (max-width: 430px) {
+    /* HOMEPAGE */
+    .home-main {
+        background-image: url("https://i.imgur.com/ik5d76k.png");
+    }
+
+    .home-list {
+        row-gap: 0px;
     }
 
     /* SHOW PAGE */

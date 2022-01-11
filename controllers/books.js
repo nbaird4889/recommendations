@@ -38,10 +38,7 @@ booksRouter.put("/:id", (req, res) => {
 
 //CREATE
 booksRouter.post("/", (req, res) => {
-    Book.create(req.body, (err, createdBook) => {
-        // if(req.body.title === '' || req.body.author === '') {
-        //     return res.render("books/new", {error: "Title and Author are required fields"}
-        // )}; 
+    Book.create(req.body, (err, createdBook) => { 
         res.redirect("/books")
     })
 })

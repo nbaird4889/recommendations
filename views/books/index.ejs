@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./script.js"></script>
     <link rel="stylesheet" href="/style.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Staatliches&display=swap');
@@ -13,12 +14,10 @@
 </head>
 
 <body>
-    <div class="mobile-container">
         <header>
             <a class="header-link" id="active" href="/">
                 <h1 class="header-headline">The Recommendation Application</h1>
             </a>
-            <div class="top-nav">
                 <nav>
                     <ul class="nav-links">
                         <a class="nav-link" href="/books">
@@ -38,8 +37,28 @@
                         </a>
                     </ul>
                 </nav>
-            </div>
-    </div>
+                <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <ul class="mobile-menu">
+                        <a class="nav-link" href="/books">
+                            <li>BOOKS</li>
+                        </a>
+                        <a class="nav-link" href="/shows">
+                            <li>TV SHOWS</li>
+                        </a>
+                        <a class="nav-link" href="/restaurants">
+                            <li>RESTAURANTS</li>
+                        </a>
+                        <a class="nav-link" href="/recipes">
+                            <li>RECIPES</li>
+                        </a>
+                        <a class="nav-link" href="/dawgs">
+                            <li>DAWGS</li>
+                        </a>
+                    </ul>
+                </div>
     </header>
     <main class="index-main">
         <h2 class="index-headline">BOOK RECOMMENDATIONS</h2>

@@ -4,6 +4,7 @@ const app = express()
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const mongoose = require('mongoose')
+const expressSession = require('express-session');
 require('dotenv').config()
 app.set('view engine', 'ejs')
 
@@ -24,17 +25,18 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
+app.use(expressSession({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
     res.locals.error = '';
     next();
-  });
+});
 
 //ROUTES and CONTROLLERS
-app.get("/", (req, res) => {
-    res.render("home")
-})
-
 const booksController = require("./controllers/books");
 app.use("/books", booksController)
 
@@ -49,6 +51,9 @@ app.use("/recipes", recipesController)
 
 const dawgsController = require("./controllers/dawgs");
 app.use("/dawgs", dawgsController)
+
+const usersController = require('./controllers/users');
+app.use('/', usersController);
 
 //LISTENER
 const PORT = process.env.PORT;

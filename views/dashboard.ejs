@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Staatliches&display=swap');
+    </style>
+    <title>Recommendation Application</title>
+</head>
+
+<body>
+        <header class="home-header">
+            <h1 class="home-headline">The Recommendation Application</h1>
+            <nav>
+                <% if(user) { %>
+                    <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
+                    <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
+                <% } else { %>
+                    <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
+                    <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
+                <% } %>
+            </nav>
+        </header>
+        <h2>Hello, <%= user.first_name %></h2>
+        <hr>
+        <% if(user.)
+        <h3></h3>
+
+</body>
+
+</html>

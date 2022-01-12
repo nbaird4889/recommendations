@@ -2,6 +2,7 @@ const express = require('express');
 const usersRouter = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const auth = require("../middleware/auth")
 
 //LOGIN ROUTES
 usersRouter.get("/", (req, res) => {
@@ -9,22 +10,18 @@ usersRouter.get("/", (req, res) => {
 })
 
 usersRouter.get("/login", (req, res) => {
-    res.render("users/login")
+    res.render("users/login", {error: ''})
 })
 
 usersRouter.post("/login", (req, res) => {
-   User.findOne({email: req.body.email}, (error, user) => {
-       if(!user) return res.render("users/login", {error: "invalid credentials"});
-       const isMatched = bcrypt.compareSync(req.body.password, user.password);
-       if(!isMatched) return res.render("users/login", {error: "invalid credentials"})
-       req.session.user = user._id
-       res.redirect("/")
-   })
-})
+    User.findOne({email: req.body.email}, (err, user) => {
+        if(!user) return res.render("users/login", {error: "invalid credentials"});
 
-usersRouter.get("/logout", (req,res) => {
-    req.session.destroy(function() {
-        res.redirect("/")
+        const isMatched = bcrypt.compareSync(req.body.password, user.password);
+        if(!isMatched) return res.render("users/login", {error: "invalid credentials"});
+
+        req.session.user = user._id;
+        res.redirect("/dashboard");
     })
 })
 
@@ -34,10 +31,23 @@ usersRouter.get('/signup', (req, res) => {
 });
 
 usersRouter.post("/signup", (req, res) => {
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(12));
     User.create(req.body, (err, user) => {
         res.redirect("/login");
     })
 })
+
+//LOGOUT ROUTE
+usersRouter.get('/logout', (req, res) => {
+    req.session.destroy(function() {
+        res.redirect('/');
+    });
+});
+
+//DASHBOARD ROUTE
+usersRouter.get("/dashboard", auth.isAuthenticated, (req, res) => {
+    res.render("dashboard");
+});
 
 
 module.exports = usersRouter;

@@ -4,18 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Staatliches&display=swap');
+    </style>
+    <title>Recommendation Application</title>
 </head>
 
 <body>
-    <header>
+    <header class="home-header">
+        <a class="header-link" id="active" href="/">
+            <h1 class="header-headline">The Recommendation Application</h1>
+        </a>
+        <nav>
+            <% if(user) { %>
+            <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
+            <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
+            <% } else { %>
+            <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
+            <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
+            <% } %>
+        </nav>
     </header>
-    <h2>Sign Up</h2>
+    <main class="form-main">
+    <h2 class="index-headline">Sign Up</h2>
     <form action="/signup" method="POST">
-        Email: <input type="email" name="email"><br />
-        Password: <input type="password" name="password"><br />
-        <input type="submit" value="Sign Up">
+        <fieldset class="login-form-fields">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" required /><br />
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" required /><br />
+            <label for="email">Email</label>
+            <input type="email" name="email" required /><br />
+            <label for="password">Password</label>
+            <input type="password" name="password" required /><br />
+            <div class="new-btn">
+                <input class="new-btn-2" type="submit" name="" value="SIGN UP" />
+            </div>
+        </fieldset>
     </form>
+    <div class="form-foot"></div>
+    </main>
+    <footer>
+        <p>© Nicole Baird | 2022</p>
+    </footer>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const expressSession = require('express-session');
 require('dotenv').config()
 app.set('view engine', 'ejs')
+const auth = require("./middleware/auth")
 
 //DATABASE CONNECTION
 mongoose.connect(process.env.DATABASE_URL, {
@@ -30,11 +31,15 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false
 }));
+
 app.use(express.urlencoded({ extended: true }));
+
 app.use(function(req, res, next) {
     res.locals.error = '';
     next();
 });
+
+app.use(auth.handleLoggedInUser);
 
 //ROUTES and CONTROLLERS
 const booksController = require("./controllers/books");

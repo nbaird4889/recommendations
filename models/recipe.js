@@ -7,6 +7,6 @@ const recipeSchema = new Schema ({
     img: String,
     rating: Number, 
     recommended: String
-})
+}, {timestamps: true});
 
 module.exports = mongoose.model("Recipe", recipeSchema)

@@ -39,6 +39,7 @@
     </header>
     <main class="index-main">
         <h2 class="index-headline">BOOK DETAILS</h2>
+        <p>Recommended by: <%=book.createdBy.first_name%> <%=book.createdBy.last_name%></p>
         <div class="container">
             <div class="img-container">
                 <% if (book.img === '') { %>
@@ -58,12 +59,14 @@
                 <p class="show-text"><%=book.rating%></p>
                 <h2 class="show-headline">Recommended by:</h2>
                 <p class="show-text"><%=book.recommended%></p>
-                <div class="show-buttons">
-                    <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a>
-                    <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
-                        <input class="show-btn" type="submit" value="DELETE" />
-                    </form>
-                </div>
+                <% if (user && user._id.equals(book.createdBy._id)) { %>
+                    <div class="show-buttons">
+                        <a href="/books/<%=book._id%>/edit"> <button class="show-btn">EDIT</button></a>
+                        <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+                            <input class="show-btn" type="submit" value="DELETE" />
+                        </form>
+                    </div>
+                <% } %>
             </div>
         </div>
         <div class="show-foot" id="book-foot"></div>

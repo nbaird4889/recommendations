@@ -8,6 +8,6 @@ const restaurantSchema = new Schema ({
     img: String,
     rating: Number, 
     recommended: String
-})
+}, {timestamps: true})
 
 module.exports = mongoose.model("Restaurant", restaurantSchema)

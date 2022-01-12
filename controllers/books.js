@@ -1,6 +1,7 @@
 const express = require("express")
 const booksRouter = express.Router()
 const Book = require("../models/book")
+const auth = require("../middleware/auth")
 
 //ROUTES
 //INDEX
@@ -13,12 +14,12 @@ booksRouter.get('/', (req, res) => {
 });
 
 //NEW
-booksRouter.get("/new", (req, res) => {
+booksRouter.get("/new", auth.isAuthenticated, (req, res) => {
     res.render("books/new")
 })
 
 //DELETE
-booksRouter.delete("/:id", (req, res) => {
+booksRouter.delete("/:id", auth.isAuthenticated, (req, res) => {
     Book.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect("/books")
     })
@@ -53,13 +54,15 @@ booksRouter.get("/:id/edit", (req, res) => {
     })
 })
 
-//SHOW
+
 booksRouter.get("/:id", (req, res) => {
-    Book.findById(req.params.id, (err, foundBook) => {
-        res.render("books/show.ejs", {
+    Book.findById(req.params.id).populate("createdBy").exec((err, foundBook) => {
+        res.render("books/show", {
             book: foundBook,
-        })
+        });
     })
 })
+
+
 
 module.exports = booksRouter

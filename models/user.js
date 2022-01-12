@@ -6,7 +6,6 @@ const userSchema = new Schema ({
     last_name: String,
     email: String, 
     password: String,
-    // favorites: []
 }, {timestamps: true})
 
 module.exports = mongoose.model("User", userSchema)

@@ -3,6 +3,7 @@ const usersRouter = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const auth = require("../middleware/auth")
+const Book = require("../models/book")
 
 //LOGIN ROUTES
 usersRouter.get("/", (req, res) => {
@@ -46,8 +47,10 @@ usersRouter.get('/logout', (req, res) => {
 
 //DASHBOARD ROUTE
 usersRouter.get("/dashboard", auth.isAuthenticated, (req, res) => {
-    res.render("dashboard");
+    Book.find({createdBy: req.user._id}, (err, books) => {
+        res.render("dashboard", {books});
+    })
 });
 
-
+usersRouter.post("/users/:id/")
 module.exports = usersRouter;

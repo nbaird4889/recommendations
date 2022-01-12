@@ -38,6 +38,7 @@ booksRouter.put("/:id", (req, res) => {
 
 //CREATE
 booksRouter.post("/", (req, res) => {
+    req.body.createdBy = req.user._id;
     Book.create(req.body, (err, createdBook) => { 
         res.redirect("/books")
     })

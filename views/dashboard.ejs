@@ -27,8 +27,18 @@
         </header>
         <h2>Hello, <%= user.first_name %></h2>
         <hr>
-        <% if(user.)
-        <h3></h3>
+        <% if(books.length) { %>
+            <h3>Here are all the Books you've shared</h3>
+            <% books.forEach(book => { %>
+                <ul>
+                    <li>
+                        <a href="/books/<%= book._id%>"><%=book.title%></a>
+                    </li>
+                </ul>
+            <% }) %>
+        <% } else { %>
+            <h3>You haven't shared any resources yet</h3>
+        <% } %>
 
 </body>
 

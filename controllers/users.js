@@ -53,9 +53,18 @@ usersRouter.get('/logout', (req, res) => {
 usersRouter.get("/dashboard", auth.isAuthenticated, (req, res) => {
     Book.find({createdBy: req.user._id}, (err, foundBooks) => {
         Dawg.find({createdBy: req.user._id}, (err, foundDawgs) => {
-            res.render("dashboard", {
-                books: foundBooks,
-                dawgs: foundDawgs
+            Recipe.find({createdBy: req.user._id}, (err, foundRecipe) => {
+                Restaurant.find({createdBy: req.user._id}, (err, foundRestaurant) => {
+                    Show.find({createdBy: req.user._id}, (err, foundShow) => {
+                        res.render("dashboard", {
+                            books: foundBooks,
+                            dawgs: foundDawgs,
+                            recipes: foundRecipe,
+                            restaurants: foundRestaurant,
+                            shows: foundShow
+                        })
+                    })
+                })
             });
         })
     });

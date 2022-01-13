@@ -13,62 +13,145 @@
 </head>
 
 <body>
-        <header class="home-header">
-            <h1 class="home-headline">The Recommendation Application</h1>
-            <nav>
-                <ul class="nav-links">
-                    <a class="nav-link" href="/books">
-                        <li>BOOKS</li>
-                    </a>
-                    <a class="nav-link" href="/shows">
-                        <li>TV SHOWS</li>
-                    </a>
-                    <a class="nav-link" href="/restaurants">
-                        <li>RESTAURANTS</li>
-                    </a>
-                    <a class="nav-link" href="/recipes">
-                        <li>RECIPES</li>
-                    </a>
-                    <a class="nav-link" href="/dawgs">
-                        <li>DAWGS</li>
-                    </a>
-                    <% if(user) { %>
-                    <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
-                    <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
-                    <% } else { %>
-                    <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
-                    <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
-                    <% } %>
-                </ul>
-            </nav>
-        </header>
-        <h2>Hello, <%= user.first_name %></h2>
-        <hr>
+    <header class="home-header">
+        <h1 class="home-headline">The Recommendation Application</h1>
+        <nav>
+            <ul class="nav-links">
+                <a class="nav-link" href="/books">
+                    <li>BOOKS</li>
+                </a>
+                <a class="nav-link" href="/shows">
+                    <li>TV SHOWS</li>
+                </a>
+                <a class="nav-link" href="/restaurants">
+                    <li>RESTAURANTS</li>
+                </a>
+                <a class="nav-link" href="/recipes">
+                    <li>RECIPES</li>
+                </a>
+                <a class="nav-link" href="/dawgs">
+                    <li>DAWGS</li>
+                </a>
+                <% if(user) { %>
+                <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
+                <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
+                <% } else { %>
+                <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
+                <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+    <main class="home-main" id="dashboard-home">
+        <div class="main-head"></div>
+        <div class="intro">
+            <h2 class="intro-headline">Hey, <%= user.first_name %>!</h2>
+            <p class="intro-text">Below is a list of all the recommendations you've made. Click on one to edit or delete
+                an entry!</p>
+        </div>
         <% if(books.length) { %>
-            <h3>Here are all the Books you've shared</h3>
+        <div class="intro-dashboard">
+            <h3 class="intro-headline">THE BOOKS YOU'VE SHARED</h3>
+        </div>
+        <% books.forEach(book => { %>
+        <ul class="index-list">
             <% books.forEach(book => { %>
-                <ul>
+            <a class="index-link" href="/books/<%=book._id%>">
+                <div class="index-items">
                     <li>
-                        <a href="/books/<%= book._id%>"><%=book.title%></a>
+                        <h2 class="index-title"><%=book.title%></h2>
                     </li>
-                </ul>
+                </div>
+            </a>
             <% }) %>
+        </ul>
+        <% }) %>
         <% } else { %>
-            <h3>You haven't shared book recommendations yet</h3>
+        <h3 class="intro-dashboard">You haven't shared book recommendations yet</h3>
         <% } %>
+        </div>
 
         <% if(dawgs.length) { %>
-            <h3>Here are all the Dawg items you've shared</h3>
+        <div class="intro-dashboard">
+            <h3 class="intro-headline">THE DAWG ITEMS YOU'VE SHARED</h3>
+        </div>
+        <ul class="index-list">
             <% dawgs.forEach(dawg => { %>
-                <ul>
+            <a class="index-link" href="/dawgs/<%=dawg._id%>">
+                <div class="index-items" id="dawg-list">
                     <li>
-                        <a href="/dawgs/<%= dawg._id%>"><%=dawg.item%></a>
+                        <h2 class="index-title"><%=dawg.item%></h2>
                     </li>
-                </ul>
+                </div>
+            </a>
             <% }) %>
+        </ul>
+
         <% } else { %>
-            <h3>You haven't shared book recommendations yet</h3>
+        <h3 class="intro-dashboard">You haven't shared dawg recommendations yet</h3>
         <% } %>
+
+
+        <% if(recipes.length) { %>
+        <div class="intro-dashboard">
+            <h3 class="intro-headline">Here are all the Recipe items you've shared</h3>
+        </div>
+        <ul class="index-list">
+            <% recipes.forEach(recipe => { %>
+            <a class="index-link" href="/recipes/<%=recipe._id%>">
+                <div class="index-items" id="recipe-items">
+                    <li>
+                        <h2 class="index-title"><%=recipe.name%></h2>
+                    </li>
+                </div>
+            </a>
+            <% }) %>
+        </ul>
+        <% } else { %>
+        <h3 class="intro-dashboard">You haven't shared recipe recommendations yet</h3>
+        <% } %>
+
+        <% if(restaurants.length) { %>
+        <div class="intro-dashboard">
+            <h3 class="intro-headline">Here are all the restaurant items you've shared</h3>
+        </div>
+        <ul class="index-list">
+            <% restaurants.forEach(restaurant => { %>
+            <a class="index-link" href="/restaurants/<%=restaurant._id%>">
+                <div class="index-items" id="rest-background">
+                    <li>
+                        <h2 class="index-title"><%=restaurant.name%></h2>
+                    </li>
+                </div>
+            </a>
+            <% }) %>
+        </ul>
+        <% } else { %>
+        <h3 class="intro-dashboard">You haven't shared restaurant recommendations yet</h3>
+        <% } %>
+
+        <% if(shows.length) { %>
+        <div class="intro-dashboard">
+            <h3 class="intro-headline">Here are all the show items you've shared</h3>
+        </div>
+        <ul class="index-list" id="dashboard-list">
+            <% shows.forEach(show => { %>
+            <a class="index-link" href="/shows/<%=show._id%>">
+                <div class="index-items" id="show-items">
+                    <li>
+                        <h2 class="index-title"><%=show.name%></h2>
+                    </li>
+                </div>
+            </a>
+            <% }) %>
+        </ul>
+        <% } else { %>
+        <h3 class="intro-dashboard">You haven't shared show recommendations yet</h3>
+        <% } %>
+    </main>
+    <footer>
+        <p>© Nicole Baird | 2022</p>
+    </footer>
 </body>
 
 </html>

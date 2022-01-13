@@ -600,16 +600,16 @@ input:focus {
 }
 
 #dawg-list {
-    background-color: #FF8F1F;
-    border-color: #FF8F1F;
+    background-color: #F6BC4F;
+    border-color: #F6BC4F;
 }
 
 #dawg-img-container {
-    background-color: #FF8F1F;
+    background-color: #F6BC4F;
 }
 
 #dawg-desc-container {
-    background-color: #FF8F1F;
+    background-color: #F6BC4F;
 }
 
 .dawg-footer {
@@ -687,6 +687,48 @@ input:focus {
     background-color: white;
     padding: 20px; 
     margin: 0px 200px; 
+}
+
+/* DASHBOARD PAGE */
+
+.intro-dashboard {
+    border: 2px solid var(--dark-grey);
+    background-color: var(--dark-grey);
+    margin: 0 auto;
+    padding: 20px 10px 10px 10px; 
+    max-width: 800px; 
+    margin-bottom: 50px;
+}
+
+.dashboard-block {
+    border: 2px solid var(--dark-grey);
+    background-color: var(--dark-grey);
+    padding: 20px 10px; 
+    width: 200px; 
+    margin-bottom: 90px;
+    transition: all .2s ease-in-out; 
+}
+
+.dashboard-block:hover {
+    transform: scale(1.2);
+}
+
+.dashboard-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 0px;
+    column-gap: 0px; 
+    row-gap: 0px;
+}
+
+#dashboard-list {
+    margin: 0px 100px;
+}
+
+#dashboard-home {
+    background-image: url("https://i.imgur.com/qK7FXwD.png");
 }
 
 

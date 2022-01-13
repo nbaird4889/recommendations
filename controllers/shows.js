@@ -1,6 +1,8 @@
 const express = require("express")
 const showRouter = express.Router()
 const Show = require("../models/show")
+const auth = require("../middleware/auth")
+const User = require('../models/user')
 
 
 //ROUTES
@@ -39,6 +41,7 @@ showRouter.put("/:id", (req, res) => {
 
 //CREATE
 showRouter.post("/", (req, res) => {
+    req.body.createdBy = req.user._id;
     Show.create(req.body, (error, createdshow) => {
         res.redirect("/shows")
     })
@@ -55,10 +58,10 @@ showRouter.get("/:id/edit", (req, res) => {
 
 //SHOW
 showRouter.get("/:id", (req, res) => {
-    Show.findById(req.params.id, (err, foundShow) => {
-        res.render("shows/show.ejs", {
+    Show.findById(req.params.id).populate("createdBy").exec((err, foundShow) => {
+        res.render("shows/show", { 
             show: foundShow,
-        })
+        });
     })
 })
 

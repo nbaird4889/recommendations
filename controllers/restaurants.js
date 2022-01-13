@@ -15,12 +15,12 @@ restaurantRouter.get('/', (req, res) => {
 });
 
 //NEW
-restaurantRouter.get("/new", (req, res) => {
+restaurantRouter.get("/new", auth.isAuthenticated, (req, res) => {
     res.render("restaurants/new")
 })
 
 //DELETE
-restaurantRouter.delete("/:id", (req, res) => {
+restaurantRouter.delete("/:id", auth.isAuthenticated, (req, res) => {
     Restaurant.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect("/restaurants")
     })
@@ -47,7 +47,7 @@ restaurantRouter.post("/", (req, res) => {
 })
 
 //EDIT
-restaurantRouter.get("/:id/edit", (req, res) => {
+restaurantRouter.get("/:id/edit", auth.isAuthenticated, (req, res) => {
     Restaurant.findById(req.params.id, (error, foundRestaurant) => {
         res.render("restaurants/edit.ejs", {
             restaurant: foundRestaurant,

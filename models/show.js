@@ -6,7 +6,10 @@ const showSchema = new Schema ({
     description: String, 
     img: String,
     rating: Number, 
-    recommended: String
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 }, {timestamps: true})
 
 module.exports = mongoose.model("Show", showSchema)

@@ -6,6 +6,7 @@ const auth = require("../middleware/auth")
 const Book = require("../models/book")
 const Dawg = require("../models/dawg")
 const Recipe = require("../models/recipe")
+const Restaurant = require("../models/restaurant")
 
 //LOGIN ROUTES
 usersRouter.get("/", (req, res) => {

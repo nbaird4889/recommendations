@@ -84,7 +84,7 @@
                 <a class="recipe-link" href="<%=recipe.link%>"><p id="rec-link-text" class="show-text">Click here for full recipe</p></a>
                 <h2 class="show-headline">Rating:</h2>
                 <p class="show-text"><%=recipe.rating%></p>
-                <% if (user && user._id.equals(dawg.createdBy._id)) { %>
+                <% if (user && user._id.equals(recipe.createdBy._id)) { %>
                 <div class="show-buttons">
                     <a href="/recipes/<%=recipe._id%>/edit"> <button class="show-btn">EDIT</button></a>
                     <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">

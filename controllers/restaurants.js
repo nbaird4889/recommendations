@@ -1,6 +1,8 @@
 const express = require("express")
 const restaurantRouter = express.Router()
 const Restaurant = require("../models/restaurant")
+const auth = require("../middleware/auth")
+const User = require('../models/user')
 
 //ROUTES
 //INDEX
@@ -38,6 +40,7 @@ restaurantRouter.put("/:id", (req, res) => {
 
 //CREATE
 restaurantRouter.post("/", (req, res) => {
+    req.body.createdBy = req.user._id;
     Restaurant.create(req.body, (error, createdRestaurant) => {
         res.redirect("/restaurants")
     })
@@ -54,10 +57,10 @@ restaurantRouter.get("/:id/edit", (req, res) => {
 
 //SHOW
 restaurantRouter.get("/:id", (req, res) => {
-    Restaurant.findById(req.params.id, (err, foundRestaurant) => {
-        res.render("restaurants/show.ejs", {
+    Restaurant.findById(req.params.id).populate("createdBy").exec((err, foundRestaurant) => {
+        res.render("restaurants/show", { 
             restaurant: foundRestaurant,
-        })
+        });
     })
 })
 

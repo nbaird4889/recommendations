@@ -19,12 +19,14 @@
         </a>
         <nav>
             <% if(user) { %>
-            <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
-            <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
-            <% } else { %>
-            <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
-            <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
-            <% } %>
+                <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
+                <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
+                <a class="home-login-link" href="/"><button class="home-login">BACK HOME</button></a>
+                <% } else { %>
+                <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
+                <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
+                <a class="home-login-link" href="/"><button class="home-login">BACK HOME</button></a>
+                <% } %>
         </nav>
     </header>
     <main class="form-main">

@@ -4,6 +4,8 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const auth = require("../middleware/auth")
 const Book = require("../models/book")
+const Dawg = require("../models/dawg")
+const Recipe = require("../models/recipe")
 
 //LOGIN ROUTES
 usersRouter.get("/", (req, res) => {
@@ -41,16 +43,21 @@ usersRouter.post("/signup", (req, res) => {
 //LOGOUT ROUTE
 usersRouter.get('/logout', (req, res) => {
     req.session.destroy(function() {
-        res.redirect('/');
+        res.redirect('/login');
     });
 });
 
 //DASHBOARD ROUTE
 usersRouter.get("/dashboard", auth.isAuthenticated, (req, res) => {
-    Book.find({createdBy: req.user._id}, (err, books) => {
-        res.render("dashboard", {books});
-    })
+    Book.find({createdBy: req.user._id}, (err, foundBooks) => {
+        Dawg.find({createdBy: req.user._id}, (err, foundDawgs) => {
+            res.render("dashboard", {
+                books: foundBooks,
+                dawgs: foundDawgs
+            });
+        })
+    });
 });
 
-usersRouter.post("/users/:id/")
+
 module.exports = usersRouter;

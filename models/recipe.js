@@ -6,7 +6,10 @@ const recipeSchema = new Schema ({
     link: String,
     img: String,
     rating: Number, 
-    recommended: String
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 }, {timestamps: true});
 
 module.exports = mongoose.model("Recipe", recipeSchema)

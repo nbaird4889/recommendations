@@ -16,13 +16,30 @@
         <header class="home-header">
             <h1 class="home-headline">The Recommendation Application</h1>
             <nav>
-                <% if(user) { %>
+                <ul class="nav-links">
+                    <a class="nav-link" href="/books">
+                        <li>BOOKS</li>
+                    </a>
+                    <a class="nav-link" href="/shows">
+                        <li>TV SHOWS</li>
+                    </a>
+                    <a class="nav-link" href="/restaurants">
+                        <li>RESTAURANTS</li>
+                    </a>
+                    <a class="nav-link" href="/recipes">
+                        <li>RECIPES</li>
+                    </a>
+                    <a class="nav-link" href="/dawgs">
+                        <li>DAWGS</li>
+                    </a>
+                    <% if(user) { %>
                     <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
                     <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
-                <% } else { %>
+                    <% } else { %>
                     <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
                     <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
-                <% } %>
+                    <% } %>
+                </ul>
             </nav>
         </header>
         <h2>Hello, <%= user.first_name %></h2>
@@ -37,9 +54,21 @@
                 </ul>
             <% }) %>
         <% } else { %>
-            <h3>You haven't shared any resources yet</h3>
+            <h3>You haven't shared book recommendations yet</h3>
         <% } %>
 
+        <% if(dawgs.length) { %>
+            <h3>Here are all the Dawg items you've shared</h3>
+            <% dawgs.forEach(dawg => { %>
+                <ul>
+                    <li>
+                        <a href="/dawgs/<%= dawg._id%>"><%=dawg.title%></a>
+                    </li>
+                </ul>
+            <% }) %>
+        <% } else { %>
+            <h3>You haven't shared book recommendations yet</h3>
+        <% } %>
 </body>
 
 </html>

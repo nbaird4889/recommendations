@@ -1,6 +1,8 @@
 const express = require("express")
 const dawgsRouter = express.Router()
 const Dawg = require("../models/dawg")
+const auth = require("../middleware/auth")
+const User = require('../models/user');
 
 //ROUTES
 //INDEX
@@ -13,12 +15,12 @@ dawgsRouter.get('/', (req, res) => {
 });
 
 //NEW
-dawgsRouter.get("/new", (req, res) => {
+dawgsRouter.get("/new", auth.isAuthenticated, (req, res) => {
     res.render("dawgs/new")
 })
 
 //DELETE
-dawgsRouter.delete("/:id", (req, res) => {
+dawgsRouter.delete("/:id", auth.isAuthenticated, (req, res) => {
     Dawg.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect("/dawgs")
     })
@@ -38,13 +40,14 @@ dawgsRouter.put("/:id", (req, res) => {
 
 //CREATE
 dawgsRouter.post("/", (req, res) => {
+    req.body.createdBy = req.user._id;
     Dawg.create(req.body, (error, createdDawg) => {
         res.redirect("/dawgs")
     })
 })
 
 //EDIT
-dawgsRouter.get("/:id/edit", (req, res) => {
+dawgsRouter.get("/:id/edit", auth.isAuthenticated, (req, res) => {
     Dawg.findById(req.params.id, (error, foundDawg) => {
         res.render("dawgs/edit.ejs", {
             dawg: foundDawg,
@@ -54,10 +57,10 @@ dawgsRouter.get("/:id/edit", (req, res) => {
 
 //SHOW
 dawgsRouter.get("/:id", (req, res) => {
-    Dawg.findById(req.params.id, (err, foundDawg) => {
-        res.render("dawgs/show.ejs", {
+    Dawg.findById(req.params.id).populate("createdBy").exec((err, foundDawg) => {
+        res.render("dawgs/show", { 
             dawg: foundDawg,
-        })
+        });
     })
 })
 

@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <a class="header-link" href="/">
+        <a class="header-link" id="active" href="/">
             <h1 class="header-headline">The Recommendation Application</h1>
         </a>
         <nav>
@@ -34,13 +34,45 @@
                 <a class="nav-link" href="/dawgs">
                     <li>DAWGS</li>
                 </a>
+                <% if(user) { %>
+                <a class="home-login-link" href="/logout"><button class="home-login">LOGOUT</button></a>
+                <a class="home-login-link" href="/dashboard"><button class="home-login">DASHBOARD</button></a>
+                <% } else { %>
+                <a class="home-login-link" href="/login"><button class="home-login">LOGIN</button></a>
+                <a class="home-login-link" href="/signup"><button class="home-login">SIGN UP</button></a>
+                <% } %>
             </ul>
         </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="mobile-menu">
+                <a class="nav-link" href="/books">
+                    <li>BOOKS</li>
+                </a>
+                <a class="nav-link" href="/shows">
+                    <li>TV SHOWS</li>
+                </a>
+                <a class="nav-link" href="/restaurants">
+                    <li>RESTAURANTS</li>
+                </a>
+                <a class="nav-link" href="/recipes">
+                    <li>RECIPES</li>
+                </a>
+                <a class="nav-link" href="/dawgs">
+                    <li>DAWGS</li>
+                </a>
+            </ul>
+        </div>
     </header>
     <main class="recipe-main">
         <h2 class="index-headline">RECIPE RECOMMENDATIONS</h2>
+        <% if(user) { %>
         <div class="new-button-div"><a href="/recipes/new"><button class="new-button">NEW RECIPE RECOMMENDATION</button></a>
         </div>
+        <% } else { %>
+            <% } %>
         <ul class="index-list">
             <% recipes.forEach(recipe => { %>
             <a class="index-link" href="/recipes/<%=recipe._id%>">

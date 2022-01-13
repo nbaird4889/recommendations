@@ -8,7 +8,6 @@ const bookSchema = new Schema ({
     description: String, 
     img: String,
     rating: Number,
-    recommended: String,
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: "User"
